@@ -1,0 +1,555 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    list-style: none;
+    text-decoration-line: none;
+    color: white;
+}
+body,html{
+    width: 450px;
+    height: 100%;
+    margin: 0 auto;
+    box-shadow: 0 0 30px gray; 
+    overflow: hidden;
+}
+#cus_app{
+    width: 100%;
+    height: 100%;
+}
+.mainBox{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+.aside_menu{
+    height: 100%;
+    width:100%;
+    display: flex;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+.aside_menu .side{
+    box-shadow: 0 0 30px gray;
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+}
+.aside_menu .side .side_header{
+    flex: 1;
+    background-color: #b72712;
+    padding: 20px 0 10px 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 158px;
+    max-height: 158px;
+}
+.side_back{
+    background: url("../images/left.png");
+    width: 30px;
+    height: 30px;
+    background-size: 30px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    z-index: 2;
+    cursor: pointer;
+}
+.aside_menu .side .side_header a{
+    
+}
+.aside_menu .side .side_header img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.aside_menu .side .side_header .about{
+    position: relative;
+    color: white;
+    font-size: 1rem;
+    font-weight: 900;
+    margin-top: 2px;
+}
+.aside_menu .side .side_header .sign{
+    position: absolute;
+    right: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0 8px;
+    border: 1px solid white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+#lv{
+    border: 1px solid white;
+    font-size: 10px;
+    font-weight: 500;
+    border-radius: 20px;
+    font-style: italic;
+    padding: 0 6px;
+}
+.aside_menu .side .side_body{
+    flex: 5.5;
+    background-color: white;
+    position: relative;
+}
+.aside_menu .nothing{
+    flex: 2;
+    opacity: 0
+}
+.header{
+    background: #b72712;
+    width: 100%;
+    flex: 1;
+}
+.appName{
+    padding: 10px;
+    display: flex;
+    border-bottom: 1px solid hsla(0, 0%, 100%, .2);
+}
+.appName .menu{
+    flex: 1;
+    position: relative;
+}
+.appName .menu i{
+    position: absolute;
+    display: inline-block;
+    left: 15px;
+    width: 25px;
+    height: 25px;
+    background: url('../images/caidan.png') no-repeat;
+    background-size: 25px;
+    cursor: pointer;
+    clear: both;
+}
+.appName p{
+    flex: 1;
+    color: white;
+    text-align: center;
+    font-family: '微软雅黑';
+    font-size: 18px;
+    font-style: bold;
+}
+.appName .search{
+    position: relative;
+    flex: 1;
+}
+.appName .search i{
+    position: absolute;
+    display: inline-block;
+    right: 15px;
+    width: 25px;
+    height: 25px;
+    background: url('../images/search.png') no-repeat;
+    background-size: 25px;
+    cursor: pointer;
+    clear: both;
+}
+.allMenu{
+    display: flex;
+    text-align: center;
+    color: white;
+    font-size: 15px;
+}
+.allMenu .item{
+    padding: 15px;
+}
+.allMenu .item a{
+    cursor: pointer;
+}
+.allMenu .myMusic{
+    flex: 1;
+}
+.active{
+    border-bottom: 2px solid #e0f2f1;
+}
+.allMenu .discover{
+    flex: 1;
+}
+.allMenu .about{
+    flex: 1;
+}
+.body{
+    padding: 4px;
+    padding-bottom: 0;
+    flex:8;
+}
+.body .menu_item{
+    position: relative;
+    padding: 3px;
+    cursor: pointer;
+    border-radius: 5px;
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+.body .menu_item .music_name{
+    width: 65%;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: top;
+    margin-top: 15px;
+    margin-left: 7px;
+}
+.body .menu_item img{
+    height: 50px;
+    width: 50px;    
+}
+.body .menu_item .music_delete{
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    background: url('../images/delete.png') no-repeat;
+    background-size: 20px;
+}
+.tips{
+    text-align: center;
+    font-size: 80%;
+    margin-top: 15px;
+    color: gray;
+}
+.sousuo{
+    display: flex;
+    flex:10;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+   -webkit-box-direction: normal;
+   overflow: auto;
+}
+.sousuo .search_input{
+    background-color: rgba(0,0,0,.1);
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+.sousuo .search_input .input{
+    position: relative;
+    height: 35px;
+    margin: 20px auto;
+    text-align: left;
+    width:90%;
+}
+.input i{
+    background:url("../images/search_gray.png") no-repeat;
+    position: absolute;
+    top: 7px;
+    left: 8px;
+    height: 20px;
+    width: 20px;
+    background-size: 20px;
+}
+.sousuo .search_input .input input{
+    width: 100%;
+    height: 100%;
+    padding: 0 34px 0 34px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+}
+.footer{
+    border: none;
+    height: 70px;
+    width: 100%;
+    background-color: #b72712;
+    display: flex;
+    line-height: 70px;
+}
+.footer .music_img{
+    display: flex;
+    justify-content: center;
+}
+.footer .music_name{
+    flex:5;
+    position: relative;
+    color: white;
+    text-indent: 4px;
+    text-align: center;
+    overflow: hidden;
+}
+.footer .music_name p{
+    height: 40px;
+    line-height: 40px;
+    font-size: 17px;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.footer .music_name .begin{
+    position: absolute;
+    left: 25px;
+}
+.footer .music_name .end{
+    position: absolute;
+    right: 26px;
+}
+.footer .music_name .about{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 10px;
+}
+.footer .music_name .progressWrap{
+    width: 50%;
+    height: 5px;
+    background-color: hsla(0,0%,100%,.5);
+    position: relative;
+    display: inline-block;
+    vertical-align: 2px;
+    cursor: pointer;
+}
+.footer .music_name .progressWrap .progress{
+    background-color: green;
+    height: 100%;
+    border-right: 2px solid white;
+}
+.footer .music_control{
+    flex:1.5;
+    text-align: center;
+}
+.footer .music_control span{
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    background-size: 50px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.footer img{
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    height: 70px;
+    width: 70px;
+}
+.music_info{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+.music_info .header_menu{
+    display: flex;
+    background-color: #b72712;
+    flex: 1;
+}
+.music_info .header_menu .back{
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+.music_info .header_menu .back span{
+    height: 30px;
+    width: 30px;
+    margin-left: 15px;
+    background: url('../images/left.png') no-repeat;
+    background-size: 30px;
+    cursor: pointer;
+}
+.music_info .header_menu .menu_list{
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+.music_info .header_menu .menu_list span{
+    height: 30px;
+    width: 30px;
+    margin-left: 25px;
+    background: url('../images/caidan.png') no-repeat;
+    background-size: 30px;
+    cursor: pointer;
+}
+.music_title{
+    flex: 3;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.music_info .header_menu .music_title p{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 1rem;
+    font-weight: 700;
+}      
+.lyric{
+    flex: 9;
+    background-color: white;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.lyric img{
+    position: absolute;
+    height: 100%;
+    width:100%;
+    z-index: 0;
+    filter: brightness(65%) blur(8px);
+}
+.lyric .image_radius{
+    width: 300px;
+    height: 300px;
+}
+.lyric .image_radius img{
+    width: 100%;
+    height: 100%;
+    filter: blur(0);
+    position: relative;
+    border-radius: 50%;
+}
+.music_progress{
+    width: 100%;
+    position: absolute;
+    bottom: 8px;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+.music_progress span{
+    text-align: center;
+}
+.music_progress .bgt{
+    flex: 1
+}
+.music_progress .progress_bar{
+    flex: 4.5;
+    height: 4px;
+    width:100%;
+    background-color: gray;
+    cursor: pointer;
+}
+.music_progress .progress_bar .progress_item{
+    width: 0%;
+    border-right: 2px solid white;
+    height: 100%;
+    background-color: green;
+}
+.music_progress .ent{
+    flex: 1;
+}
+.music_footer{
+    flex: 1;
+    background-color: #b72712;
+    width: 100%;
+    /* position: relative; */
+    display: flex;
+}
+.music_footer .pro{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+.music_footer .pro span{
+    display: inline-block;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    background: url("../images/pre.png") no-repeat;
+    background-size: 50px;
+}
+.music_footer .stop_begin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1
+}
+.music_footer .stop_begin span{
+    display: inline-block;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    /* background: url("../images/play.png") no-repeat; */
+    background-size: 50px;
+}
+.music_footer .next{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.music_footer .next span{
+    display: inline-block;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    background: url("../images/next.png") no-repeat;
+    background-size: 50px;
+}
+.play{
+    background:url('../images/stop.png') no-repeat;
+}
+.stop{
+    background:url('../images/play.png') no-repeat;
+}
+.slide1-enter-active {
+    transition: all .8s ease;
+}
+.slide1-leave-active {
+    /* transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0); */
+}
+.slide1-enter{
+    transform: translateX(-100%);
+}
+.slide1-leave{
+    /* transform: translateY(100%);
+    opacity: 0; */
+}
+.slide2-enter-active {
+    transition: all .8s ease;
+}
+.slide2-leave-active {
+    /* transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0); */
+}
+.slide2-enter{
+    transform: translateY(100%);
+}
+.slide2-leave{
+    /* transform: translateY(100%);
+    opacity: 0; */
+}
+.side-enter-active {
+    transition: all .5s ease;
+}
+.side-leave-active {
+    transition: all .6s ease;
+    transform: translateX(-100%);
+    opacity: 0;
+}
+.side-enter{
+    transform: translateX(-50%);
+    opacity: 0;
+}
+.side-leave{
+
+}
+@media screen and (max-width:765px) {
+    body,html{
+        width: 100%;
+    }
+    .footer .music_name .begin{
+        left: 4px;
+    }
+    .footer .music_name .end{
+        right: 3px;
+    }
+}
