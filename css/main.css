@@ -22,16 +22,20 @@ body,html{
 .mainBox{
     width: 100%;
     height: 100%;
-    display: flex;
+    display: -webkit-box;
     display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     position: relative;
     flex-direction: column;
 }
 .aside_menu{
     height: 100%;
     width:100%;
-    display: flex;
+    display: -webkit-box;
     display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -42,8 +46,10 @@ body,html{
 .aside_menu .side{
     box-shadow: 0 0 30px gray;
     flex: 3;
-    display: flex;
+    display: -webkit-box;
     display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     flex-direction: column;
 }
 .aside_menu .side .side_header{
@@ -51,8 +57,10 @@ body,html{
     background-color: #b72712;
     padding: 20px 0 10px 10px;
     position: relative;
-    display: flex;
+    display: -webkit-box;
     display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     flex-direction: column;
     min-height: 158px;
     max-height: 158px;
@@ -118,8 +126,10 @@ body,html{
 }
 .appName{
     padding: 10px;
-    display: flex;
+    display: -webkit-box;
     display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     border-bottom: 1px solid hsla(0, 0%, 100%, .2);
 }
 .appName .menu{
@@ -161,8 +171,10 @@ body,html{
     clear: both;
 }
 .allMenu{
-    display: flex;
+    display: -webkit-box;
     display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     text-align: center;
     color: white;
     font-size: 15px;
@@ -227,6 +239,9 @@ body,html{
     color: gray;
 }
 .sousuo{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     flex:10;
     width: 100%;
@@ -271,13 +286,17 @@ body,html{
     height: 70px;
     width: 100%;
     background-color: #b72712;
-    display: flex;
+    display: -webkit-box;
     display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     line-height: 70px;
 }
 .footer .music_img{
-    display: flex;
+    display: -webkit-box;
     display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     justify-content: center;
 }
 .footer .music_name{
@@ -345,22 +364,28 @@ body,html{
     width: 70px;
 }
 .music_info{
-    display: flex;
+    display: -webkit-box;
     display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100%;
     width: 100%;
 }
 .music_info .header_menu{
-    display: flex;
+    display: -webkit-box;
     display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     background-color: #b72712;
     flex: 1;
 }
 .music_info .header_menu .back{
-    display: flex;
+    display: -webkit-box;
     display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     align-items: center;
     flex: 1;
 }
@@ -373,8 +398,10 @@ body,html{
     cursor: pointer;
 }
 .music_info .header_menu .menu_list{
-    display: flex;
+    display: -webkit-box;
     display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     align-items: center;
     flex: 1;
 }
@@ -389,8 +416,10 @@ body,html{
 .music_title{
     flex: 3;
     color: white;
-    display: flex;
+    display: -webkit-box;
     display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -406,8 +435,10 @@ body,html{
     flex: 9;
     background-color: white;
     position: relative;
-    display: flex;
+    display: -webkit-box;
     display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
@@ -435,8 +466,10 @@ body,html{
     width: 100%;
     position: absolute;
     bottom: 8px;
-    display: flex;
+    display: -webkit-box;
     display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     align-items: center;
     color: white;
 }
@@ -467,12 +500,16 @@ body,html{
     background-color: #b72712;
     width: 100%;
     /* position: relative; */
-    display: flex;
+    display: -webkit-box;
     display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
 }
 .music_footer .pro{
-    display: flex;
+    display: -webkit-box;
     display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     flex: 1;
     justify-content: center;
     align-items: center;
@@ -486,8 +523,10 @@ body,html{
     background-size: 50px;
 }
 .music_footer .stop_begin{
-    display: flex;
+    display: -webkit-box;
     display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     justify-content: center;
     align-items: center;
     flex: 1
@@ -502,8 +541,10 @@ body,html{
 }
 .music_footer .next{
     flex: 1;
-    display: flex;
+    display: -webkit-box;
     display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
