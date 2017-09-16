@@ -647,8 +647,7 @@ body,html{
     /* transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0); */
 }
 .slide1-enter{
-    transform:transition3d(0,0,0);
-    transform: translateX(-100%);
+    transform: translate3d(-100%,0,0);
 }
 .slide1-leave{
     /* transform: translateY(100%);
@@ -661,7 +660,7 @@ body,html{
     /* transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0); */
 }
 .slide2-enter{
-    transform: translateY(100%);
+    transform: translate3d(0,100%,0);
 }
 .slide2-leave{
     /* transform: translateY(100%);
