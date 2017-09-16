@@ -644,6 +644,7 @@ body,html{
     /* transition: all .8s ease; */
     animation: left_in .4s linear;
     -webkit-animation: left_in .4s linear;
+    opacity: 0;
 }
 .slide1-leave-active {
     /* transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0); */
@@ -669,6 +670,7 @@ body,html{
     /* transition: all .8s ease; */
     animation: bottom_in .4s linear;
     -webkit-animation: bottom_in .4s linear;
+    opacity: 0;
 }
 .slide2-leave-active {
     /* transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0); */
