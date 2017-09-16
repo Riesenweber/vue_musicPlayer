@@ -46,6 +46,9 @@ body,html{
 .aside_menu .side{
     box-shadow: 0 0 30px gray;
     flex: 3;
+    -webkit-box-flex: 3;        
+    -moz-box-flex: 3;           
+    -ms-flex: 3;  
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -54,6 +57,9 @@ body,html{
 }
 .aside_menu .side .side_header{
     flex: 1;
+    -webkit-box-flex: 1;        
+    -moz-box-flex: 1;           
+    -ms-flex: 1;  
     background-color: #b72712;
     padding: 20px 0 10px 10px;
     position: relative;
@@ -112,17 +118,26 @@ body,html{
 }
 .aside_menu .side .side_body{
     flex: 5.5;
+    -webkit-box-flex: 5.5;        
+    -moz-box-flex: 5.5;           
+    -ms-flex: 5.5;  
     background-color: white;
     position: relative;
 }
 .aside_menu .nothing{
     flex: 2;
+    -webkit-box-flex: 2;        
+    -moz-box-flex: 2;           
+    -ms-flex: 2;  
     opacity: 0
 }
 .header{
     background: #b72712;
     width: 100%;
     flex: 1;
+    -webkit-box-flex: 1;        
+    -moz-box-flex: 1;           
+    -ms-flex: 1;  
 }
 .appName{
     padding: 10px;
@@ -134,6 +149,9 @@ body,html{
 }
 .appName .menu{
     flex: 1;
+    -webkit-box-flex: 1;        
+    -moz-box-flex: 1;           
+    -ms-flex: 1;  
     position: relative;
 }
 .appName .menu i{
@@ -149,6 +167,9 @@ body,html{
 }
 .appName p{
     flex: 1;
+    -webkit-box-flex: 1;        
+    -moz-box-flex: 1;           
+    -ms-flex: 1;  
     color: white;
     text-align: center;
     font-family: '微软雅黑';
@@ -158,6 +179,9 @@ body,html{
 .appName .search{
     position: relative;
     flex: 1;
+    -webkit-box-flex: 1;        
+    -moz-box-flex: 1;           
+    -ms-flex: 1;  
 }
 .appName .search i{
     position: absolute;
@@ -187,15 +211,24 @@ body,html{
 }
 .allMenu .myMusic{
     flex: 1;
+    -webkit-box-flex: 1;        
+    -moz-box-flex: 1;           
+    -ms-flex: 1;  
 }
 .active{
     border-bottom: 2px solid #e0f2f1;
 }
 .allMenu .discover{
     flex: 1;
+    -webkit-box-flex: 1;        
+    -moz-box-flex: 1;           
+    -ms-flex: 1;  
 }
 .allMenu .about{
     flex: 1;
+    -webkit-box-flex: 1;        
+    -moz-box-flex: 1;           
+    -ms-flex: 1;  
 }
 .body{
     padding: 4px;
@@ -244,6 +277,9 @@ body,html{
     display: -ms-flexbox;
     display: flex;
     flex:10;
+    -webkit-box-flex: 10;        
+    -moz-box-flex: 10;           
+    -ms-flex: 10;  
     width: 100%;
     height: 100%;
     flex-direction: column;
@@ -301,6 +337,9 @@ body,html{
 }
 .footer .music_name{
     flex:5;
+    -webkit-box-flex: 5;        
+    -moz-box-flex: 5;           
+    -ms-flex: 5;  
     position: relative;
     color: white;
     text-indent: 4px;
@@ -345,6 +384,9 @@ body,html{
 }
 .footer .music_control{
     flex:1.5;
+    -webkit-box-flex: 1.5;        
+    -moz-box-flex: 1.5;           
+    -ms-flex: 1.5;  
     text-align: center;
 }
 .footer .music_control span{
@@ -380,6 +422,9 @@ body,html{
     display: flex;
     background-color: #b72712;
     flex: 1;
+    -webkit-box-flex: 1;        
+    -moz-box-flex: 1;           
+    -ms-flex: 1;  
 }
 .music_info .header_menu .back{
     display: -webkit-box;
@@ -388,6 +433,9 @@ body,html{
     display: flex;
     align-items: center;
     flex: 1;
+    -webkit-box-flex: 1;        
+    -moz-box-flex: 1;           
+    -ms-flex: 1;  
 }
 .music_info .header_menu .back span{
     height: 30px;
@@ -404,6 +452,9 @@ body,html{
     display: flex;
     align-items: center;
     flex: 1;
+    -webkit-box-flex: 1;        
+    -moz-box-flex: 1;           
+    -ms-flex: 1;  
 }
 .music_info .header_menu .menu_list span{
     height: 30px;
@@ -415,6 +466,9 @@ body,html{
 }
 .music_title{
     flex: 3;
+    -webkit-box-flex: 3;        
+    -moz-box-flex: 3;           
+    -ms-flex: 3;  
     color: white;
     display: -webkit-box;
     display: -webkit-flex;
@@ -477,10 +531,16 @@ body,html{
     text-align: center;
 }
 .music_progress .bgt{
-    flex: 1
+    flex: 1;
+    -webkit-box-flex: 1;        
+    -moz-box-flex: 1;           
+    -ms-flex: 1;  
 }
 .music_progress .progress_bar{
     flex: 4.5;
+    -webkit-box-flex: 4.5;        
+    -moz-box-flex: 4.5;           
+    -ms-flex: 4.5;  
     height: 4px;
     width:100%;
     background-color: gray;
@@ -494,9 +554,15 @@ body,html{
 }
 .music_progress .ent{
     flex: 1;
+    -webkit-box-flex: 1;        
+    -moz-box-flex: 1;           
+    -ms-flex: 1;  
 }
 .music_footer{
     flex: 1;
+    -webkit-box-flex: 1;        
+    -moz-box-flex: 1;           
+    -ms-flex: 1;  
     background-color: #b72712;
     width: 100%;
     /* position: relative; */
@@ -529,7 +595,10 @@ body,html{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 1
+    flex: 1;
+    -webkit-box-flex: 1;        
+    -moz-box-flex: 1;           
+    -ms-flex: 1;  
 }
 .music_footer .stop_begin span{
     display: inline-block;
@@ -541,6 +610,9 @@ body,html{
 }
 .music_footer .next{
     flex: 1;
+    -webkit-box-flex: 1;        
+    -moz-box-flex: 1;           
+    -ms-flex: 1;  
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
