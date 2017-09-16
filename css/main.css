@@ -575,6 +575,7 @@ body,html{
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    min-height: 65px;
 }
 .music_footer .pro{
     display: -webkit-box;
