@@ -134,10 +134,10 @@ body,html{
 .header{
     background: #b72712;
     width: 100%;
-    flex: 1;
+    /* flex: 1;
     -webkit-box-flex: 1;        
     -moz-box-flex: 1;           
-    -ms-flex: 1;  
+    -ms-flex: 1;   */
 }
 .appName{
     padding: 10px;
