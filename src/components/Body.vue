@@ -1,4 +1,5 @@
 <<template>
+  <transition name="showBody">
   <div class="body">
             <div class="menu_item" style="border:none">
             <img src="http://imgcache.qq.com/music/photo/album_300/13/300_albumpic_1137013_0.jpg">
@@ -22,13 +23,27 @@
             </div>
             <div class="tips">没有更多歌曲了~</div>
     </div>
+    </transition>
 </template>
 <<script>
 export default {
-   name:'body'
+   name:'body',
+   mounted(){
+       this.$store.commit('changeBorderIndex',1);
+   }
 }
 </script>
 <<style scoped>
+.showBody-enter-active {
+  transition: all .4s ease;
+}
+.showBody-leave-active {
+  transition: all 0 ease;
+}
+.showBody-enter, .showBody-leave-active {
+  transform: translateX(-150px);
+  opacity: 0;
+}
 .body{
     padding: 4px;
     padding-bottom: 0;

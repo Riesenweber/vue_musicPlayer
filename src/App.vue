@@ -3,6 +3,9 @@
     <!-- <img src="./assets/logo.png"> -->
     <transition name="showMain">
     <div v-show='isShowPlay' class="index">
+    <transition name="showSide">
+    <v-side v-if="isShowSide"></v-side>
+    </transition>
     <vHeader></vHeader>
     <router-view></router-view>
     <vFooter></vFooter>
@@ -19,6 +22,7 @@
 import vHeader from "./components/Header.vue"
 import vFooter from "./components/Footer.vue"
 import vPlay from "./components/Play.vue"
+import vSide from "./components/sideMenu.vue"
 export default {
   name: 'app',
   mounted(){
@@ -30,18 +34,22 @@ export default {
     },
     isShowPlay(){
       return this.$store.state.isShowPlay;
+    },
+    isShowSide(){
+      return this.$store.state.isShowSide;
     }
   },
   components:{
     vHeader,
     vFooter,
-    vPlay
+    vPlay,
+    vSide
   }
 }
 </script>
 
 <style>
-@import "./commom-style/common.css";
+@import "./commom-style/common.scss";
 .showMain-enter-active {
   transition: all .4s ease;
 }
@@ -60,6 +68,16 @@ export default {
 }
 .showPlay-enter, .showPlay-leave-active {
   transform: translateY(350px);
+  opacity: 0;
+}
+.showSide-enter-active {
+  transition: all .4s ease;
+}
+.showSide-leave-active {
+  transition: all .2s ease-out;
+}
+.showSide-enter, .showSide-leave-active {
+  transform: translateX(-150px);
   opacity: 0;
 }
 #app ,.index {

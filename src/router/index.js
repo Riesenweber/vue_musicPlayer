@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Header from '@/components/Header'
 import Body from '@/components/Body'
+import Search from '@/components/Search'
 
 Vue.use(Router)
 
@@ -9,8 +9,18 @@ export default new Router({
   routes: [
     {
       path:'/',
+      name:'/',
+      component:Body
+    },
+    {
+      path:'/body',
       name:'Body',
       component:Body
+    },
+    {
+      path:'/search',
+      name:'Search',
+      component:Search
     }
   ]
 })

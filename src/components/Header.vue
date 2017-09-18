@@ -2,7 +2,7 @@
   <div class="header">
             <div class="appName">
                 <span class="menu">
-                    <i @click="show_sideMenu"></i>
+                    <i @click="showSide(true)"></i>
                 </span>
                 <p>音乐</p>
                 <span class="search">
@@ -10,13 +10,13 @@
                 </span>   
             </div>
             <div class="allMenu">
-                <div class="item myMusic" :class="{'active':isActivem}">
-                    <a @click="toggle(tab_my)">{{tab_my}}</a>
+                <div class="item myMusic" :class="{'active':changeBorderIndex==1}">
+                    <router-link to="/body">{{tab_my}}</router-link>
                 </div>
-                <div class="item discover" :class="{'active':isActived}">
-                    <a @click="toggle(tab_dic)">{{tab_dic}}</a>
+                <div class="item discover" :class="{'active':changeBorderIndex==2}">
+                    <router-link to="/search">{{tab_dic}}</router-link>
                 </div>
-                <div class="item about" :class="{'active':isActivea}">
+                <div class="item about" :class="{'active':changeBorderIndex==3}">
                     <a @click="toggle(tab_abo)">{{tab_abo}}</a>
                 </div>
             </div>
@@ -26,12 +26,22 @@
 <script>
 export default {
   name: 'header',
+  computed:{
+    changeBorderIndex(){
+        return this.$store.state.changeBorderIndex;
+    }
+  },
   data () {
     return {
       tab_my: '我的',
       tab_dic: '搜索',
       tab_abo: '关于',
     }
+  },
+  methods:{
+      showSide(flag){
+          this.$store.commit('showSide',flag);
+      }
   }
 }
 </script>

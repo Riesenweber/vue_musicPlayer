@@ -12,7 +12,9 @@ const store = new Vuex.Store({
   state: {
     isPlaying: false,
     DOM:{},
-    isShowPlay:true
+    isShowPlay:true,
+    changeBorderIndex:'',
+    isShowSide:false
   },
   mutations: {
     play(state, flag) {
@@ -23,6 +25,12 @@ const store = new Vuex.Store({
     },
     isShowIndex(state,show){
       state.isShowPlay=show;
+    },
+    changeBorderIndex(state,flag){
+      state.changeBorderIndex=flag;
+    },
+    showSide(state,flag){
+      state.isShowSide=flag;
     }
   }
 })

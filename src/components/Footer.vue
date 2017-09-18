@@ -21,7 +21,7 @@ export default {
     this.Audio=document.querySelector('audio');
     this.Audio.addEventListener('play',()=>{
         // alert(this.Audio.duration);
-        this.totalTime=this.getEndTime(this.Audio.duration);
+        this.totalTime=this.getEndTime(this.Audio.duration);;
          var _this=this;
         setInterval(function(){
             _this.currentTime=_this.Audio.currentTime;
@@ -124,11 +124,11 @@ export default {
 }
 .footer .music_name .begin{
     position: absolute;
-    left: 25px;
+    left: 10px;
 }
 .footer .music_name .end{
     position: absolute;
-    right: 26px;
+    right: 10px;
 }
 .footer .music_name .about{
     width: 100%;
