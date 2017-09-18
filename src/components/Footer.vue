@@ -4,44 +4,48 @@
             <div class="music_name">
                 <p>周深 - 化身孤岛的鲸 (原曲：我们都被忘了)</p>
                 <div class="about">
-                <span class="begin">{{beginTime}}</span>
+                <span class="begin">{{getEndTime(currentTime)}}</span>
                 <div class="progressWrap" id="progressBar" v-on:click="progressChange($event)">
                     <div class="progress" v-bind:style="{width:persent}"></div>
                 </div>
-                <span class="end">{{endTime}}</span>
+                <span class="end">{{totalTime}}</span>
                 </div>
             </div>
-            <div class="music_control" id="control"><span v-bind:class="{ play:pActive,'stop':sActive }" v-on:click="playOrStop"></span></div>
+            <div class="music_control" id="control"><span v-bind:class="[ this.isPlaying?play:stop ]" v-on:click="playOrStop"></span></div>
         </div>
 </template>
 
 <<script>
 export default {
-  name:'footer',
   mounted() {
     this.Audio=document.querySelector('audio');
-    this.totalTime=this.getEndTime(this.Audio.duration);
+    this.Audio.addEventListener('play',()=>{
+        // alert(this.Audio.duration);
+        this.totalTime=this.getEndTime(this.Audio.duration);
+         var _this=this;
+        setInterval(function(){
+            _this.currentTime=_this.Audio.currentTime;
+            _this.persent=((_this.currentTime/_this.Audio.duration)*100).toFixed(2)+'%';
+            // alert(_this.persent);
+        },1000)
+       
+    }) 
   },
   data(){
     return {
-         beginTime:'00.00',
-         endTime:'00.00',
+         currentTime:0,
          pActive:false,
          sActive:true,
          persent:'0%',
-         totalTime:'',
-         Audio:{}
+         totalTime:'00.00',
+         Audio:{},
+         play:'play',
+         stop:'stop'
     }
   },
   computed:{
     isPlaying() {
       return this.$store.state.isPlaying;
-    },
-    isShowAsideMenu() {
-      return this.$store.state.isShowAsideMenu;
-    },
-    isShowMiniMusic() {
-      return this.$store.state.isShowMiniMusic;
     },
     audio() {
       return this.$store.state.audio;
@@ -50,32 +54,10 @@ export default {
       return this.$store.state.DOM;
     },
   },
-    methods:{
-        init:function(){
-        this.Audio=document.querySelector('#player');
-        // alert(this.Audio.duration);
-        this.endTime=this.totalTime;
-        },
-        play:function(){
-        this.pActive=true;
-        this.sActive=false;
-        // this.Audio.play();
-        // alert(1);
-        },
-        stop:function(){
-        this.pActive=false;
-        this.sActive=true;
-        // this.Audio.pause();
-        },
+    methods:{  
         playOrStop:function(){
-            // alert(this.Audio.src);
+        this.$store.commit('play', !this.isPlaying);
         !this.isPlaying ? this.DOM.audio.pause() : this.DOM.audio.play();
-        this.init();
-        if(this.pActive==false){
-        this.play();
-         }else{
-        this.stop();
-        }
         },
         getEndTime:function(time){
         var totals=parseInt(time);
@@ -85,25 +67,18 @@ export default {
         second=second<10?('0'+second):second;
         return minute+':'+second;
         },
-        updateTime:function(){
-        audio=document.querySelector('#player');
-        this.beginTime=this.getEndTime(audio.currentTime);
-        this.persent=this.updatePercent(audio.currentTime,audio.duration);
-        },
-        updatePercent:function(cur,total){
-        var percent=parseInt((Number(cur)/Number(total)*100))+'%';
-        return percent;
-        },
         progressChange:function(e){
-        audio=document.querySelector('#player');
         var bar=document.getElementById(e.currentTarget.id);
                     //  alert(e.currentTarget.id);
-        var scroll=parseInt((Number(e.offsetX)/Number(bar.clientWidth-2)*100))+'%';
-        audio.currentTime=(audio.duration)*(parseInt(scroll)/100);
-        this.init();
-        this.play();
+        this.persent=parseInt((Number(e.offsetX)/Number(bar.clientWidth-2)*100))+'%';
+        this.Audio.currentTime=(this.Audio.duration)*(parseInt(this.persent)/100);
+        this.Audio.play();
+        this.$store.commit('play', true);
                     //  alert(bar.clientWidth-2);
                     //  alert(e.offsetX);
+        },
+        toInfo(){
+            this.$store.commit('isShowIndex', false);
         }
         }
   }

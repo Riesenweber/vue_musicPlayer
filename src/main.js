@@ -10,18 +10,27 @@ Vue.use(Vuex);
 Vue.config.productionTip = false
 const store = new Vuex.Store({
   state: {
-    isPlaying: false
+    isPlaying: false,
+    DOM:{},
+    isShowPlay:true
   },
   mutations: {
     play(state, flag) {
       state.isPlaying = flag;
     },
+    findDOM(state, payload) {
+      state.DOM[payload.name] = payload.dom;
+    },
+    isShowIndex(state,show){
+      state.isShowPlay=show;
+    }
   }
 })
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })
