@@ -179,14 +179,20 @@ export default {
     display: -ms-flexbox;
     display: flex;
     text-align: center;
-    color: white;
+    background-color: white;
     font-size: 15px;
 }
 .allMenu .item{
-    padding: 15px;
+    /* padding: 10px; */
+    height: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .allMenu .item a{
     cursor: pointer;
+    color: black;
+
 }
 .allMenu .myMusic{
     flex: 1;
@@ -195,7 +201,10 @@ export default {
     -ms-flex: 1;  
 }
 .active{
-    border-bottom: 2px solid #e0f2f1;
+    border-bottom: 2px solid #b72712;
+}
+.active a{
+    color:#b72712!important;
 }
 .allMenu .discover{
     flex: 1;

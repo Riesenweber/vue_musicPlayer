@@ -1,24 +1,9 @@
 <<template>
   <transition name="showBody">
   <div class="body">
-            <div class="menu_item" style="border:none">
-            <img src="http://imgcache.qq.com/music/photo/album_300/13/300_albumpic_1137013_0.jpg">
-            <span class="music_name">1.  周深 - 化身孤岛的鲸 (原曲：我们都被忘了)</span>
-            <span class="music_delete"></span>
-            </div>
-            <div class="menu_item">
-            <img src="http://imgcache.qq.com/music/photo/album_300/13/300_albumpic_1137013_0.jpg">
-            <span class="music_name">2.  周深 - 化身孤岛的鲸 (原曲：我们都被忘了)</span>
-            <span class="music_delete"></span>
-            </div>
-            <div class="menu_item">
-            <img src="http://imgcache.qq.com/music/photo/album_300/13/300_albumpic_1137013_0.jpg">
-            <span class="music_name">3.  周深 - 化身孤岛的鲸 (原曲：我们都被忘了)</span>
-            <span class="music_delete"></span>
-            </div>
-            <div class="menu_item">
-            <img src="http://imgcache.qq.com/music/photo/album_300/13/300_albumpic_1137013_0.jpg">
-            <span class="music_name">4.  周深 - 化身孤岛的鲸 (原曲：我们都被忘了)</span>
+            <div @click="playMusic(item.name,item.imgSrc,item.src)" class="menu_item" style="border:none" v-for="item of musicData">
+            <img :src="item.imgSrc">
+            <span class="music_name">{{item.name}}</span>
             <span class="music_delete"></span>
             </div>
             <div class="tips">没有更多歌曲了~</div>
@@ -30,6 +15,17 @@ export default {
    name:'body',
    mounted(){
        this.$store.commit('changeBorderIndex',1);
+   },
+   computed:{
+       musicData(){
+           return this.$store.state.musicData;
+       }
+   },
+   methods:{
+      playMusic(name,imgSrc,src){
+          this.$store.commit("playMusic",{name:name,imgSrc:imgSrc,src:src});
+          this.$store.commit("showFooter",true);
+      }
    }
 }
 </script>
@@ -48,13 +44,14 @@ export default {
     padding: 4px;
     padding-bottom: 0;
     flex:8;
+    background-color:rgba(0,0,0,.05);
 }
 .body .menu_item{
     position: relative;
     padding: 3px;
     cursor: pointer;
     border-radius: 5px;
-    border-top: 1px solid rgba(0,0,0,.1);
+    border-bottom: 1px solid rgba(0,0,0,.1)!important;
 }
 .body .menu_item .music_name{
     width: 65%;

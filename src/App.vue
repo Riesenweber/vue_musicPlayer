@@ -8,13 +8,13 @@
     </transition>
     <vHeader></vHeader>
     <router-view></router-view>
-    <vFooter></vFooter>
+    <vFooter v-if="isShowFooter"></vFooter>
     </div>
     </transition>
     <transition name="showPlay">
     <v-play v-show='!isShowPlay'></v-play>
     </transition>
-    <audio src="http://ws.stream.qqmusic.qq.com/104128113.m4a?fromtag=46" v-bind:autoplay="isPlaying" ref="audio"></audio>
+    <audio :src="audio.src" v-bind:autoplay="isPlaying" ref="audio"></audio>
   </div>
 </template>
 
@@ -28,6 +28,11 @@ export default {
   mounted(){
      this.$store.commit('findDOM', {name: 'audio', dom: this.$refs.audio});
   },
+  data(){
+    return{
+      deSrc:"http://ws.stream.qqmusic.qq.com/101806738.m4a?fromtag=46"
+    }
+  },
   computed:{
     isPlaying() {
       return this.$store.state.isPlaying;
@@ -37,7 +42,16 @@ export default {
     },
     isShowSide(){
       return this.$store.state.isShowSide;
+    },
+    audio(){
+      return this.$store.state.audio;
+    },
+    isShowFooter(){
+      return this.$store.state.isShowFooter;
     }
+  },
+  beforeCreate(){
+    this.$store.dispatch('getdata');
   },
   components:{
     vHeader,

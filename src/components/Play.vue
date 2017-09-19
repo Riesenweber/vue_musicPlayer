@@ -2,13 +2,13 @@
    <div class="music_info">
         <div class="header_menu">
             <div class="back"><span @click="toMain"></span></div>
-            <div class="music_title"><p>周深 - 化身孤岛的鲸 (原曲：我们都被忘了)</p></div>
+            <div class="music_title"><p>{{audio.name}}</p></div>
             <div class="menu_list"><span></span></div>
         </div>
         <div class="lyric">
-            <img src="http://imgcache.qq.com/music/photo/album_300/13/300_albumpic_1137013_0.jpg">
+            <img :src="audio.imgSrc">
             <div class="image_radius">
-                <img src='http://imgcache.qq.com/music/photo/album_300/13/300_albumpic_1137013_0.jpg'>
+                <img :src='audio.imgSrc'>
             </div>
             <div class="music_progress">
                 <span class="bgt">{{getEndTime(currentTime)}}</span>

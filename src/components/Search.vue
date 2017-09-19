@@ -4,8 +4,23 @@
         <div class="search_input">
             <div class="input">
               <i></i>
-              <input type="text" placeholder="搜索歌曲"></input>
+              <input v-model='keyword' @keyup.enter="Search(keyword)" type="text" placeholder="搜索歌曲"></input>
             </div>
+        </div>
+        <div class="search-list">
+        <div @click="playMusic(item.songname,item.albumpic_big,item.m4a)" class="musicList" v-for="(item,index) of musicList">
+            <div class='music-icon'>
+                <img :src="item.albumpic_small">
+            </div>
+            <div class='music-info'>
+                <div class='music-title'>
+                    {{item.songname}}
+                </div>
+                <div class='music-singer'>
+                    {{item.singername}}
+                </div>
+            </div>
+        </div>
         </div>
     </div>
 </transition>
@@ -16,7 +31,39 @@ export default {
   name:'search',
   mounted(){
       this.$store.commit("changeBorderIndex",2);
-  }
+  },
+  data(){
+      return{
+          keyword:'',
+          musicList:[]
+      }
+  },
+  computed:{
+        musicData(){
+            return this.$store.state.musicData;
+        }
+  },
+  methods:{
+      Search(e){
+          var url="http://route.showapi.com/213-1?showapi_appid=43929&showapi_sign=a046b25771534b40a5e691850c5f10be&page=1&keyword="+e;
+          this.axios.get(url).then((res)=>{
+              this.musicList=res.data.showapi_res_body.pagebean.contentlist;
+              console.log(this.musicList);
+          })
+      },
+      playMusic(name,imgSrc,src){
+          this.$store.commit("playMusic",{name:name,imgSrc:imgSrc,src:src});
+          this.$store.commit("showFooter",true);
+          this.$store.commit("addMusic",{name:name,imgSrc:imgSrc,src:src});
+      }
+  },
+  watch:{
+    musicData:{
+        handler(val, oldVal){
+          localStorage.musicData = JSON.stringify(val);
+        }
+    }
+}
 }
 </script>
 
@@ -44,7 +91,7 @@ export default {
     height: 100%;
     flex-direction: column;
    -webkit-box-direction: normal;
-   overflow: auto;
+   overflow: hidden;
 }
 .sousuo .search_input{
     background-color: rgba(0,0,0,.1);
@@ -76,6 +123,45 @@ export default {
     border: none;
     border-radius: 3px;
     outline: none;
+}
+.search-list{
+    overflow:auto;
+    flex:1;
+}
+.musicList{
+   display:flex;
+   border-bottom:1px solid rgba(0,0,0,.1);
+   height:50px;
+}
+.musicList .music-icon{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:50px;
+    width:50px;
+}
+.musicList .music-icon img{
+    height:90%;
+    width:90%;;
+}
+.musicList .music-info{
+    position:relative;
+    display:flex;
+    flex:1;
+    padding:4px;
+    flex-direction:column;
+
+}
+.musicList .music-info .music-title{
+    width:260px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+.musicList .music-info .music-singer{
+    padding-top:3px;
+    font-size:50%;
+    color:gray;
 }
 </style>
 

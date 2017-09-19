@@ -1,8 +1,8 @@
 <<template>
   <div class="footer" id="cus_footer">
-            <div class="music_img"><img src="http://imgcache.qq.com/music/photo/album_300/13/300_albumpic_1137013_0.jpg" @click="toInfo"></div>
+            <div class="music_img"><img :src="audio.imgSrc" @click="toInfo"></div>
             <div class="music_name">
-                <p>周深 - 化身孤岛的鲸 (原曲：我们都被忘了)</p>
+                <p>{{audio.name}}</p>
                 <div class="about">
                 <span class="begin">{{getEndTime(currentTime)}}</span>
                 <div class="progressWrap" id="progressBar" v-on:click="progressChange($event)">
