@@ -18,18 +18,12 @@
 <<script>
 export default {
   mounted() {
-    this.Audio=document.querySelector('audio');
-    this.Audio.addEventListener('play',()=>{
-        // alert(this.Audio.duration);
-        this.totalTime=this.getEndTime(this.Audio.duration);;
-         var _this=this;
-        setInterval(function(){
-            _this.currentTime=_this.Audio.currentTime;
-            _this.persent=((_this.currentTime/_this.Audio.duration)*100).toFixed(2)+'%';
-            // alert(_this.persent);
-        },1000)
-       
-    }) 
+      this.Audio=document.querySelector('audio');
+    //   this.Audio.addEventListener('play',this.playMusic);
+    this.Audio.onplay=this.playMusic();
+  },
+  destroyed(){
+      clearInterval(this.interval);
   },
   data(){
     return {
@@ -40,7 +34,8 @@ export default {
          totalTime:'00.00',
          Audio:{},
          play:'play',
-         stop:'stop'
+         stop:'stop',
+         interval:{}
     }
   },
   computed:{
@@ -55,6 +50,20 @@ export default {
     },
   },
     methods:{  
+        playMusic:function(){
+            var a=setInterval(() => {
+             if(this.Audio.duration){
+              console.log(this.Audio.duration);
+              this.totalTime=this.getEndTime(this.Audio.duration);;
+              this.currentTime=this.Audio.currentTime;
+              this.interval=setInterval(()=>{
+              this.currentTime=this.Audio.currentTime;
+              this.persent=((this.currentTime/this.Audio.duration)*100).toFixed(2)+'%';
+              },1000)
+              clearInterval(a);
+             }
+            }, 1);
+        },
         playOrStop:function(){
         this.$store.commit('play', !this.isPlaying);
         !this.isPlaying ? this.DOM.audio.pause() : this.DOM.audio.play();

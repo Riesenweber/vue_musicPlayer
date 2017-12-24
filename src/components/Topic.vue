@@ -30,6 +30,7 @@
 export default {
   name:'search',
   mounted(){
+      this.$store.commit("showFooter",false);
       this.$store.commit("changeBorderIndex",3);
       this.getIdList().then(res=>{
           return Promise.all(res.data.data.map(item=>{

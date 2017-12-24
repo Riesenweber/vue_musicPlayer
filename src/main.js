@@ -29,6 +29,9 @@ const store = new Vuex.Store({
     musicData:[]
   },
   mutations: {
+    del(state,index){
+      state.musicData.splice(index,1);
+    },
     play(state, flag) {
       state.isPlaying = flag;
     },
@@ -67,7 +70,7 @@ const store = new Vuex.Store({
       state.musicData=JSON.parse(localStorage.musicData);
       console.log(localStorage.valueOf());
     }
-  }
+  },
 })
 /* eslint-disable no-new */
 new Vue({
@@ -75,5 +78,17 @@ new Vue({
   router,
   store,
   template: '<App/>',
-  components: { App }
+  components: { App },
+  computed:{
+    musicData(){
+      return this.$store.state.musicData;
+    }
+  },
+  watch:{
+    musicData:{
+        handler(val, oldVal){
+          localStorage.musicData = JSON.stringify(val);
+        }
+    }
+}
 })

@@ -58,13 +58,6 @@ export default {
           this.$store.commit("addMusic",{name:name,imgSrc:imgSrc,src:src});
       }
   },
-  watch:{
-    musicData:{
-        handler(val, oldVal){
-          localStorage.musicData = JSON.stringify(val);
-        }
-    }
-}
 }
 </script>
 

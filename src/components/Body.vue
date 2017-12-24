@@ -1,10 +1,10 @@
 <<template>
   <transition name="showBody">
   <div class="body">
-            <div @click="playMusic(item.name,item.imgSrc,item.src)" class="menu_item" style="border:none" v-for="item of musicData">
+            <div @click="playMusic(item.name,item.imgSrc,item.src)" class="menu_item" style="border:none" v-for="(item,index) of musicData">
             <img :src="item.imgSrc">
             <span class="music_name">{{item.name}}</span>
-            <span class="music_delete"></span>
+            <span class="music_delete" @click="deleteLocal(index)"></span>
             </div>
             <div class="tips">没有更多歌曲了~</div>
     </div>
@@ -15,16 +15,27 @@ export default {
    name:'body',
    mounted(){
        this.$store.commit('changeBorderIndex',1);
+       if (this.isPlaying==true) {
+           this.$store.commit("showFooter",true);
+       }
    },
    computed:{
        musicData(){
            return this.$store.state.musicData;
+       },
+       isPlaying(){
+           return this.$store.state.isPlaying;
        }
    },
    methods:{
       playMusic(name,imgSrc,src){
           this.$store.commit("playMusic",{name:name,imgSrc:imgSrc,src:src});
           this.$store.commit("showFooter",true);
+      },
+      deleteLocal(index,ev){
+          ev=window.event||ev;
+          ev.stopPropagation();
+          this.$store.commit('del',index);
       }
    }
 }
