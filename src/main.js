@@ -65,7 +65,7 @@ const store = new Vuex.Store({
   actions:{
     getdata({commit,state}){
       state.musicData=JSON.parse(localStorage.musicData);
-      console.log(localStorage);
+      console.log(localStorage.valueOf());
     }
   }
 })

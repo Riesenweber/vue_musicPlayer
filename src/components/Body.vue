@@ -45,6 +45,7 @@ export default {
     padding-bottom: 0;
     flex:8;
     background-color:rgba(0,0,0,.05);
+    overflow:auto;
 }
 .body .menu_item{
     position: relative;

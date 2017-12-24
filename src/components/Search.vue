@@ -1,4 +1,4 @@
-<<template>
+<template>
 <transition name="showBody">
   <div class="sousuo">
         <div class="search_input">
@@ -52,6 +52,7 @@ export default {
           })
       },
       playMusic(name,imgSrc,src){
+          console.log(src);
           this.$store.commit("playMusic",{name:name,imgSrc:imgSrc,src:src});
           this.$store.commit("showFooter",true);
           this.$store.commit("addMusic",{name:name,imgSrc:imgSrc,src:src});

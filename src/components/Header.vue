@@ -17,7 +17,7 @@
                     <router-link to="/search">{{tab_dic}}</router-link>
                 </div>
                 <div class="item about" :class="{'active':changeBorderIndex==3}">
-                    <a @click="toggle(tab_abo)">{{tab_abo}}</a>
+                    <router-link to="/topic">{{tab_abo}}</router-link>
                 </div>
             </div>
   </div>
@@ -35,7 +35,7 @@ export default {
     return {
       tab_my: '我的',
       tab_dic: '搜索',
-      tab_abo: '关于',
+      tab_abo: '文章',
     }
   },
   methods:{
