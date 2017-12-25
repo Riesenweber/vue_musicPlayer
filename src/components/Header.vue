@@ -6,7 +6,7 @@
                 </span>
                 <p>音乐</p>
                 <span class="search">
-                    <i></i>
+                    <i @click="tosearch()"></i>
                 </span>   
             </div>
             <div class="allMenu">
@@ -41,6 +41,9 @@ export default {
   methods:{
       showSide(flag){
           this.$store.commit('showSide',flag);
+      },
+      tosearch(){
+          this.$router.push("/search");
       }
   }
 }

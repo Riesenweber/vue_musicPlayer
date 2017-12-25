@@ -10,7 +10,33 @@
                        <span class="sign">签到</span>
                     </div>
                </div>
-               <div class="side_body"></div>
+               <div class="side_body">
+                   <ul>
+                       <li><i class="mess-icon"></i>我的消息</li>
+                       <li><i class="hy-icon"></i>会员中心</li>
+                       <li><i class="shop-icon"></i>商城</li>
+                       <li><i class="online-icon"></i>在线听歌免流量</li>
+                   </ul>
+                   <ul>
+                       <li><i class="friend-icon"></i>我的好友</li>
+                       <li><i class="around-icon"></i>附近的人</li>
+                   </ul>
+                   <ul>
+                       <li><i class="pf-icon"></i>个性换肤</li>
+                       <li><i class="listen-icon"></i>听歌识曲</li>
+                       <li><i class="stop-icon"></i>定时停止播放</li>
+                       <li><i class="sao-icon"></i>扫一扫</li>
+                       <li><i class="clock-icon"></i>音乐闹钟</li>
+                       <li><i class="drive-icon"></i>驾驶模式</li>
+                       <li><i class="pan-icon"></i>音乐云盘</li>
+                       <li><i class="about-icon"></i>关于</li>
+                   </ul>
+               </div>
+               <div class="footer-menu">
+                       <div class="light"><i class="light-icon"></i>护眼</div>
+                       <div class="setting"><i class="set-icon"></i>设置</div>
+                       <div class="out" @click="close()"><i class="out-icon"></i>退出</div>
+               </div>
            </div>
            <div class="nothing" @click="back_side(false)"></div>
         </div>
@@ -22,6 +48,9 @@ export default {
   methods:{
       back_side(flag){
           this.$store.commit('showSide',flag);
+      },
+      close(){
+          window.close();
       }
   }
 }
@@ -43,6 +72,7 @@ export default {
     z-index: 1;
 }
 .aside_menu .side{
+    position:relative;
     box-shadow: 0 0 30px gray;
     flex: 3;
     -webkit-box-flex: 3;        
@@ -77,7 +107,7 @@ export default {
     background-size: 30px;
     position: absolute;
     top: 10px;
-    left: 50%;
+    left: 85%;
     z-index: 2;
     cursor: pointer;
 }
@@ -116,12 +146,127 @@ export default {
     padding: 0 6px;
 }
 .aside_menu .side .side_body{
+    overflow:auto;
     flex: 5.5;
     -webkit-box-flex: 5.5;        
     -moz-box-flex: 5.5;           
     -ms-flex: 5.5;  
     background-color: white;
     position: relative;
+    margin-bottom:45px;
+}
+.side_body ul{
+    padding-left:15px;
+    padding-top:10px;
+    border-bottom:6px solid rgba(0,0,0,.05);
+}
+.side_body ul:nth-last-child(1){
+    border-bottom:none;
+}
+.side_body ul li{
+    list-style:none;
+    font-size:90%;
+    color:rgba(0, 0, 0, .5);
+    margin-bottom:20px;
+}
+i{
+    height:18px;
+    width:18px;
+    margin-right:4px;
+    display:inline-block;
+    vertical-align:text-bottom;
+}
+i.mess-icon{
+    background:url("../../images/mess.png");
+    background-size:contain;
+}
+i.hy-icon{
+    background:url("../../images/huiyuan.png");
+    background-size:contain;
+}
+i.shop-icon{
+    background:url("../../images/shop.png");
+    background-size:contain;
+}
+i.online-icon{
+    background:url("../../images/online.png");
+    background-size:contain;
+}
+i.friend-icon{
+    background:url("../../images/friend.png");
+    background-size:contain;
+}
+i.around-icon{
+    background:url("../../images/around.png");
+    background-size:contain;
+}
+i.pf-icon{
+    background:url("../../images/pf.png");
+    background-size:contain;
+}
+i.listen-icon{
+    background:url("../../images/listen.png");
+    background-size:contain;
+}
+i.stop-icon{
+    background:url("../../images/dingshi.png");
+    background-size:contain;
+}
+i.sao-icon{
+    background:url("../../images/sao.png");
+    background-size:contain;
+}
+i.clock-icon{
+    background:url("../../images/clock.png");
+    background-size:contain;
+}
+i.drive-icon{
+    background:url("../../images/car.png");
+    background-size:contain;
+}
+i.pan-icon{
+    background:url("../../images/yunpan.png");
+    background-size:contain;
+}
+i.about-icon{
+    background:url("../../images/about.png");
+    background-size:contain;
+}
+i.light-icon{
+    background:url("../../images/light.png");
+    background-size:contain;
+}
+i.set-icon{
+    background:url("../../images/setting.png");
+    background-size:contain;
+}
+i.out-icon{
+    background:url("../../images/out.png");
+    background-size:contain;
+}
+.footer-menu{
+    width:100%;
+    height:45px;
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    background-color:#fff;
+    border-top:1px solid rgba(0,0,0,.05);
+    justify-content:center;
+    display:flex;
+    text-align:center;
+    align-items:center;
+    flex-direction:row;
+    font-size:80%;
+}
+.footer-menu .light{
+    flex:1;
+}
+.footer-menu .setting{
+    flex:1;
+}
+.footer-menu .out{
+    flex:1;
 }
 .aside_menu .nothing{
     flex: 2;
