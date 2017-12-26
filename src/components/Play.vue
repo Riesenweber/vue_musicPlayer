@@ -7,7 +7,7 @@
         </div>
         <div class="lyric">
             <img :src="audio.imgSrc">
-            <div class="image_radius">
+            <div class="image_radius active" :class="{play:isPlaying}">
                 <img :src='audio.imgSrc'>
             </div>
             <div class="music_progress">
@@ -19,13 +19,13 @@
             </div>
         </div>
         <div class="music_footer">
-            <div class="pro">
+            <div class="pro" @click="prev()">
                 <span></span>
             </div>
             <div class="stop_begin">
                 <span v-bind:class="[isPlaying?play:stop ]" v-on:click="playOrStop"></span>
             </div>
-            <div class="next">
+            <div class="next" @click="next()">
                 <span></span>
             </div>
         </div>
@@ -57,6 +57,9 @@ export default {
       },
       audio(){
           return this.$store.state.audio;
+      },
+      musicData(){
+          return this.$store.state.musicData;
       }
   },
   data(){
@@ -96,6 +99,15 @@ export default {
         },
         toMain(){
         this.$store.commit('isShowIndex',true);
+        },
+        prev(){
+        var prev=this.audio.index==0?this.musicData.length-1:this.audio.index-1;
+        console.log(this.Audio.index);
+        this.$store.commit('playMyMusic',prev);
+        },
+        next(){
+        var next=this.audio.index==this.musicData.length-1?0:this.audio.index+1;
+        this.$store.commit('playMyMusic',next);
         }
         },
 }
@@ -206,16 +218,36 @@ export default {
     bottom: 0px;
 }
 .lyric .image_radius{
+    position:absolute;
     width: 300px;
     height: 300px;
+    background-color:#000;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 .lyric .image_radius img{
-    width: 100%;
-    height: 100%;
+    width: 70%;
+    height: 70%;
     filter: blur(0);
     -webkit-filter:blur(0);
     position: relative;
     border-radius: 50%;
+}
+.active{
+   animation:rol 6s infinite linear;
+   animation-play-state:paused;
+}
+.play{
+    animation-play-state:running;
+}
+@keyframes rol{
+    0%{transform:rotate(0deg)}
+    25%{transform:rotate(90deg)}
+    50%{transform:rotate(180deg)}
+    75%{transform:rotate(270deg)}
+    100%{transform:rotate(360deg)}
 }
 .music_progress{
     width: 100%;

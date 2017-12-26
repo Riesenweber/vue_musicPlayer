@@ -185,7 +185,7 @@ a{
     justify-content: center;
     text-align: center;
     width: 100%;
-    border-top: 2px solid gray;
+    border-top: 2px solid rgba(0,0,0,.08);
     padding: 10px 0;
     background-color: #fff;
     opacity: 1;
