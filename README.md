@@ -3,7 +3,7 @@
 ## 预览
 ### 演示地址: [vue音乐播放器](http://zhl199655.coding.me/vue_bofangqi/dist)
 ### 预览图片: 
- ![](https://github.com/zhanghailong2/images/blob/master/vue_bofangqi/vb_1.png)
+ ![主界面](https://github.com/zhanghailong2/images/blob/master/vue_bofangqi/vb_1.png)
 
 
 ## Build Setup
