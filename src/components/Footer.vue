@@ -19,11 +19,17 @@
 export default {
   mounted() {
       this.Audio=document.querySelector('audio');
-    //   this.Audio.addEventListener('play',this.playMusic);
-    this.Audio.onplay=this.playMusic();
-  },
-  destroyed(){
-      clearInterval(this.interval);
+      this.Audio.addEventListener('play',()=>{
+         this.totalTime=this.getEndTime(this.Audio.duration);
+            this.currentTime=this.Audio.currentTime;
+            setInterval(()=>{
+                this.currentTime=this.Audio.currentTime;
+                this.persent=((this.currentTime/this.Audio.duration)*100).toFixed(2)+'%';
+        },1000)
+      });
+    //         this.Audio.onplay=()=>{
+            
+    // }
   },
   data(){
     return {
@@ -35,7 +41,6 @@ export default {
          Audio:{},
          play:'play',
          stop:'stop',
-         interval:{}
     }
   },
   computed:{
@@ -50,20 +55,6 @@ export default {
     },
   },
     methods:{  
-        playMusic:function(){
-            var a=setInterval(() => {
-             if(this.Audio.duration){
-              console.log(this.Audio.duration);
-              this.totalTime=this.getEndTime(this.Audio.duration);;
-              this.currentTime=this.Audio.currentTime;
-              this.interval=setInterval(()=>{
-              this.currentTime=this.Audio.currentTime;
-              this.persent=((this.currentTime/this.Audio.duration)*100).toFixed(2)+'%';
-              },1000)
-              clearInterval(a);
-             }
-            }, 1);
-        },
         playOrStop:function(){
         this.$store.commit('play', !this.isPlaying);
         !this.isPlaying ? this.DOM.audio.pause() : this.DOM.audio.play();

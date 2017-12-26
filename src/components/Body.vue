@@ -1,7 +1,7 @@
 <<template>
   <transition name="showBody">
   <div class="body">
-            <div @click="playMusic(item.name,item.imgSrc,item.src)" class="menu_item" style="border:none" v-for="(item,index) of musicData">
+            <div @click="playMusic(index)" class="menu_item" style="border:none" v-for="(item,index) of musicData">
             <img :src="item.imgSrc">
             <span class="music_name">{{item.name}}</span>
             <span class="music_delete" @click="deleteLocal(index)"></span>
@@ -28,8 +28,9 @@ export default {
        }
    },
    methods:{
-      playMusic(name,imgSrc,src){
-          this.$store.commit("playMusic",{name:name,imgSrc:imgSrc,src:src});
+      playMusic(index){
+          console.log(index);
+          this.$store.commit("playMyMusic",index);
           this.$store.commit("showFooter",true);
       },
       deleteLocal(index,ev){

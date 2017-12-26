@@ -123,7 +123,7 @@ a{
     overflow: auto;
     width: 100%;
     height: 100%;
-    padding-bottom: 100px;
+    margin-bottom: 45px;
     overflow: auto;
 }
 .onLoading{
@@ -181,6 +181,7 @@ a{
     left: 0;
     bottom: 0;
     display: flex;
+    height:45px;
     justify-content: center;
     text-align: center;
     width: 100%;

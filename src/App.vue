@@ -8,13 +8,13 @@
     </transition>
     <vHeader></vHeader>
     <router-view></router-view>
-    <vFooter v-if="isShowFooter"></vFooter>
+    <vFooter v-show="isShowFooter"></vFooter>
     </div>
     </transition>
     <transition name="showPlay">
     <v-play v-show='!isShowPlay'></v-play>
     </transition>
-    <audio :src="audio.src" v-bind:autoplay="isPlaying" ref="audio"></audio>
+    <audio :src="audio.src" v-bind:autoplay="isPlaying" ref="audio" @ended="next()"></audio>
   </div>
 </template>
 
@@ -33,7 +33,18 @@ export default {
       deSrc:"http://ws.stream.qqmusic.qq.com/101806738.m4a?fromtag=46"
     }
   },
+  methods:{
+    next(){
+      setTimeout(()=>{
+          var next=this.audio.index===this.musicData.length-1?0:this.audio.index+1;
+          this.$store.commit('playMyMusic',next);
+      },600)
+    }
+  },
   computed:{
+    musicData(){
+      return this.$store.state.musicData;
+    },
     isPlaying() {
       return this.$store.state.isPlaying;
     },

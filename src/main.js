@@ -47,6 +47,13 @@ const store = new Vuex.Store({
     showSide(state,flag){
       state.isShowSide=flag;
     },
+    playMyMusic(state,flag){
+      state.audio.imgSrc=state.musicData[flag].imgSrc;
+      state.audio.name=state.musicData[flag].name;
+      state.audio.src=state.musicData[flag].src;
+      state.audio.index=flag;
+      state.isPlaying=true;
+    },
     playMusic(state,src){
       state.audio.imgSrc=src.imgSrc;
       state.audio.name=src.name;
